@@ -20,11 +20,25 @@ Task 1: Add Sessions to a Conference
 Added the following endpoint methods:
 
 createSession: given a conference, creates a session.
+
 getConferenceSessions: given a conference, returns all sessions.
+
 getConferenceSessionsByType: given a conference and session type, returns all applicable sessions.
+
 getSessionsBySpeaker: given a speaker, returns all sessions across all conferences.
 
-For the Speaker model design, I implemented the following datastore properties:
+The following design choices where implemented for speaker model:
+
+Property	| Type
+
+name	    | string, required
+highlights |	string
+speaker	| string, required
+duration	| integer
+typeOfSession |	string, repeated
+startDateTime |	DateTimeProperty
+organizerUserId	|string
+
 
 
 Task 2: Add Sessions to User Wishlist
