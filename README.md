@@ -12,6 +12,8 @@ Conference Central App
 
 ## APIs
 - [Google Cloud Endpoints][3]
+
+Tasks Implemented:
  
 Task 1: Add Sessions to a Conference
 
@@ -37,7 +39,8 @@ Task 3: Work on indexes and queries
 
 Added the following two additional queries:
 
-1)getUpcomingSessions: returns all upcoming session's.This would be useful to the users to check the next coming sessions among different conferences.
+1)getUpcomingConferenceSessions: returns all upcoming session's in a particular conference.This would be really useful to the users to check the next coming sessions in a particular conference so that they can plan accordingly.
+
 2)getConferencesByMonth: Given a month returns all the conferences starting in that month.
 
 query related problem:Queries have only one  inequality filter, and it would cause a BadRequestError to filter on both startDate and typeOfSession.
