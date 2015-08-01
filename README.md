@@ -13,7 +13,7 @@ Conference Central App
 ## APIs
 - [Google Cloud Endpoints][3]
 
-Tasks Implemented:
+##Tasks Implemented:
  
 Task 1: Add Sessions to a Conference
 
@@ -32,11 +32,17 @@ The following design choices where implemented for speaker model:
 Property	| Type
 
 name	    | string, required
+
 highlights |	string
+
 speaker	| string, required
+
 duration	| integer
+
 typeOfSession |	string, repeated
+
 startDateTime |	DateTimeProperty
+
 organizerUserId	|string
 
 
