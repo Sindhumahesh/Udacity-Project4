@@ -66,6 +66,11 @@ Added the following two additional queries:
 query related problem:Queries have only one  inequality filter, and it would cause a BadRequestError to filter on both startDate and typeOfSession.
 
 
+Task 4: Add Featured Speaker
+
+Made some changes to createSession endpoint to check if the speaker appeared in any other of the conference's sessions. If so, the speaker name and relevant session names were added to the memcache under the featured_speaker key. created the following endpoint:
+1)getFeaturedSpeaker:check the memcache for the featured speaker. If empty, it would simply pull the next upcoming speaker.
+
 ## Setup Instructions
 1. Update the value of `application` in `app.yaml` to the app ID you
    have registered in the App Engine admin console and would like to use to host
