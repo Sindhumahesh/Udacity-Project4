@@ -387,26 +387,34 @@ class ConferenceApi(remote.Service):
         filtered_sessions = []
         for session in sess:
             # assume local time
-            if session.startDateTime.hour < 19:
+            if session.startDateTime.hour <= 19:
                 filtered_sessions.append(session)
         return SessionForms(
             items=[self._copySessionToForm(session) for session in filtered_sessions]
         )
 
-    @endpoints.method(message_types.VoidMessage, SessionForms,
-            http_method='GET', name='getUpcomingSessions')
-    def getUpcomingSessions(self, request):
+    @endpoints.method(CONF_GET_REQUEST, SessionForms,
+            http_method='GET', name='getUpcomingConferenceSessions')
+    def getUpcomingConferenceSessions(self, request):
         """Returns a list of upcoming sessions"""
         #get current date time
         today = datetime.now()
-        sessions = Session.query(ndb.AND(
-                Session.startDateTime != None,
-                Session.startDateTime >= today
-                ))
+        conf = ndb.Key(urlsafe=request.websafeConferenceKey)
 
+        # check that conference exists
+        if not conf.get():
+            raise endpoints.NotFoundException(
+                'No conference found with key: %s' % request.websafeConferenceKey)
+
+        # create ancestor query for all key matches for this conference
+
+        sessions = Session.query(ancestor=conf).filter(Session.startDateTime >= today)
+
+         # return set of ConferenceForm objects per Conference
         return SessionForms(
-            items=[self._copySessionToForm(session)for session in sessions]
+            items=[self._copySessionToForm(session) for session in sessions]
         )
+
 
 
     @endpoints.method(MONTH_GET_REQUEST, ConferenceForms,
