@@ -1,7 +1,15 @@
-Conference Central App
-##Description
-- 
+##Conference Organization App
 
+##Description
+
+- In this project we  will develop a cloud-based API server to support  conference organization application that exists on the web as well as a native Android application.
+- The API supports the following functionality  within the app: 
+1)user authentication
+2)user profiles
+3)conference information
+4)session information
+5)wishlist information
+6)speaker information
 
 - 
 ## Products
