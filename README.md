@@ -1,5 +1,9 @@
-App Engine application for the Udacity training course.
+Conference Central App
+##Description
+- 
 
+
+- 
 ## Products
 - [App Engine][1]
 
@@ -8,6 +12,30 @@ App Engine application for the Udacity training course.
 
 ## APIs
 - [Google Cloud Endpoints][3]
+ 
+Task 1: Add Sessions to a Conference
+
+Added the following endpoint methods:
+
+createSession: given a conference, creates a session.
+getConferenceSessions: given a conference, returns all sessions.
+getConferenceSessionsByType: given a conference and session type, returns all applicable sessions.
+getSessionsBySpeaker: given a speaker, returns all sessions across all conferences.
+
+For the Speaker model design, I implemented the following datastore properties:
+
+
+ask 2: Add Sessions to User Wishlist
+
+Overview
+
+Users should be able to mark some sessions that they are interested in and retrieve their own current wishlist. You are free to design the way this wishlist is stored.
+Define the following Endpoints methods
+addSessionToWishlist(SessionKey) -- adds the session to the user's list of sessions they are interested in attending
+
+You can decide if they can only add conference they have registered to attend or if the wishlist is open to all conferences.
+getSessionsInWishlist() -- query for all the sessions in a conference that the user is interested in
+
 
 ## Setup Instructions
 1. Update the value of `application` in `app.yaml` to the app ID you
