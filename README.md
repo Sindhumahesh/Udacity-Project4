@@ -25,16 +25,22 @@ getSessionsBySpeaker: given a speaker, returns all sessions across all conferenc
 For the Speaker model design, I implemented the following datastore properties:
 
 
-ask 2: Add Sessions to User Wishlist
+Task 2: Add Sessions to User Wishlist
 
-Overview
+Added an attribute sessionInWishlist in Profile model with a repeated key property filed.In order to interact with this model in API the following two endpoints were added:
 
-Users should be able to mark some sessions that they are interested in and retrieve their own current wishlist. You are free to design the way this wishlist is stored.
-Define the following Endpoints methods
-addSessionToWishlist(SessionKey) -- adds the session to the user's list of sessions they are interested in attending
+1)addSessionToWishlist: Given a websafeSessionKey adds that session to user's wishlist.
 
-You can decide if they can only add conference they have registered to attend or if the wishlist is open to all conferences.
-getSessionsInWishlist() -- query for all the sessions in a conference that the user is interested in
+2)getSessionsInWishlist:Returns all the sessions in the user's wishlist.
+
+Task 3: Work on indexes and queries
+
+Added the following two additional queries:
+
+1)getUpcomingSessions: returns all upcoming session's.This would be useful to the users to check the next coming sessions among different conferences.
+2)getConferencesByMonth: Given a month returns all the conferences starting in that month.
+
+query related problem:Queries have only one  inequality filter, and it would cause a BadRequestError to filter on both startDate and typeOfSession.
 
 
 ## Setup Instructions
