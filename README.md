@@ -53,6 +53,13 @@ startDateTime |	DateTimeProperty
 
 organizerUserId	|string
 
+To represent one conference to many sessions a parent-child relationship is created .This allows for strong consistenty as sessions can be queried by their conference ancestor.The ancestor path for session entity can help us to find  parent conference that related to session same as conference entity  linked to user profile.
+
+
+
+DateTimeProperty gives more accuracy in term of quering session entities filter by date or time.
+
+For speakers, speaker field could be linked to user profiles but that would force speaker to have a registered account which could give inconsistent entry as a result. Session types such as talk, lecture, with session can receive multiple different types.
 
 
 Task 2: Add Sessions to User Wishlist
