@@ -78,7 +78,11 @@ Added the following two additional queries:
 
 2)getConferencesByMonth: Given a month returns all the conferences starting in that month.
 
-query related problem:Queries have only one  inequality filter, and it would cause a BadRequestError to filter on both startDate and typeOfSession.
+Query Problem:
+
+All session are not in the same timezone, if you assume the session time is local time, then we can treat the hour as integer, problem soloved. if the type of timestamp in each session startDateTime property is UTC, then we have to convert each UTC timestamp object to local time object(where the conference held) then compare with the value we want.
+
+Datastore have certain restictions on queries i.e combining too many filters,using inequalities for multiple properties which would cause a BadRequestError .
 
 
 Task 4: Add Featured Speaker
