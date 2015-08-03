@@ -399,7 +399,7 @@ class ConferenceApi(remote.Service):
     @endpoints.method(CONF_GET_REQUEST, SessionForms,
             http_method='GET', name='getUpcomingConferenceSessions')
     def getUpcomingConferenceSessions(self, request):
-        """Returns a list of upcoming sessions"""
+        """Returns a list of upcoming sessions in a conference"""
         #get current date time
         today = datetime.now()
         conf = ndb.Key(urlsafe=request.websafeConferenceKey)
