@@ -206,6 +206,8 @@ class ConferenceApi(remote.Service):
         sessions = Session.query(Session.speaker == data['speaker'],
             ancestor=c_key)
         if len(list(sessions)) > 1:
+            taskqueue.add(params={'speaker': data['speaker']}, url='/tasks/set_featured_speaker')
+
             cache_data = {}
             cache_data['speaker'] = data['speaker']
 

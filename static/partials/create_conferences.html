@@ -84,15 +84,6 @@
                     <input id="maxAttendees" type="text" name="maxAttendees" ng-model="conference.maxAttendees"
                            class="form-control"/>
                 </div>
-                <div class="form-group">
-                    <label for=“session”>Session Name</label>
-                    <span class="label label-danger"
-                        ng-show="!isValidMaxAttendees()">Must be an integer!</span>
-                    <!-- The input type is text as the conference.maxAttendees will be undefined,
-                    hence isValidMaxAttendees will be true when input type is number -->
-                    <input id="maxAttendees" type="text" name="maxAttendees" ng-model=“session.name”
-                           class="form-control"/>
-                </div>
 
 
 
