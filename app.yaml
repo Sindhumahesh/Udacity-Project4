@@ -18,7 +18,7 @@ handlers:       # static then dynamic
   script: main.app
   login: admin
   
-- url: /tasks/send_featured_speaker
+- url: /tasks/set_featured_speaker
   script: main.app
   login: admin
   
